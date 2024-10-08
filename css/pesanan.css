@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Latar belakang gradasi */
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
+    padding-top: 20px; /* Lebih banyak ruang di atas */
+    transition: transform 0.5s;
+}
+
+svg {
+    width: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px; /* Lebih banyak ruang di dalam header */
+    background-color: #4a4a4a; /* Warna latar belakang header */
+    color: #fff; /* Warna teks header */
+    border-radius: 0 0 30px 30px; /* Sudut membulat di bagian bawah */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan halus */
+}
+
+.icon-cart {
+    position: relative;
+}
+
+.icon-cart span {
+    position: absolute;
+    background-color: red;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: -10px;
+    right: -15px;
+    font-size: 0.8em; /* Ukuran font lebih kecil */
+}
+
+.title {
+    font-size: 2.5em; /* Ukuran judul yang lebih besar */
+    font-family: 'Monoton', cursive; /* Font bergaya untuk judul */
+    color: #0e91e8; /* Warna judul */
+    letter-spacing: 3px; /* Spasi antar huruf */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Bayangan teks */
+}
+
+.listProduct .item img {
+    width: 90%;
+    border-radius: 10px; /* Sudut membulat untuk gambar */
+    transition: transform 0.3s; /* Efek zoom saat hover */
+}
+
+.listProduct .item img:hover {
+    transform: scale(1.05); /* Zoom pada gambar saat hover */
+}
+
+.listProduct {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px; /* Ruang di atas daftar produk */
+}
+
+.listProduct .item {
+    background-color: #fff; /* Warna latar belakang item produk */
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan untuk item produk */
+    transition: transform 0.3s; /* Efek skala pada hover */
+}
+
+.listProduct .item:hover {
+    transform: translateY(-5px); /* Mengangkat item saat hover */
+}
+
+.listProduct .item h2 {
+    font-weight: 600; /* Bold untuk nama produk */
+    font-size: large;
+    color: #333; /* Warna gelap untuk teks */
+}
+
+.listProduct .item .price {
+    letter-spacing: 2px; /* Spasi antar huruf untuk harga */
+    font-size: medium; /* Ukuran font untuk harga */
+    color: #E8BC0E; /* Warna harga */
+}
+
+.listProduct .item button {
+    background-color: #0ecfe8; /* Warna tombol */
+    color: #333; /* Warna teks tombol */
+    border: none;
+    padding: 10px 15px; /* Ruang dalam tombol */
+    margin-top: 10px;
+    border-radius: 20px; /* Sudut membulat pada tombol */
+    cursor: pointer; /* Kursor pointer saat hover */
+    transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+.listProduct .item button:hover {
+    background-color: #000000; /* Warna lebih gelap saat hover */
+    color: #0e74e8; /* Ubah warna teks saat hover */
+}
+
+/* cart */
+.cartTab {
+    width: 400px;
+    background-color: #4a4a4aee; /* Warna latar belakang keranjang */
+    color: #fff; /* Warna teks keranjang */
+    position: fixed;
+    top: 0;
+    right: -400px;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: 0.5s;
+    border-left: 4px solid #0e98e8; /* Border untuk highlight */
+}
+
+body.showCart .cartTab {
+    right: 0;
+}
+
+body.showCart .container {
+    transform: translateX(-250px);
+}
+
+.cartTab h1 {
+    padding: 20px;
+    margin: 0;
+    font-weight: 300; /* Lebih ringan */
+    font-size: 1.5em; /* Ukuran header di keranjang */
+    text-align: center; /* Rata tengah untuk header */
+}
+
+.cartTab .btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab button {
+    background-color: #08caec; /* Warna tombol */
+    border: none;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 15px; /* Lebih banyak ruang dalam tombol */
+    border-radius: 10px; /* Sudut membulat pada tombol */
+    transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+.cartTab .close {
+    background-color: #e1e1e1; /* Warna latar belakang tombol tutup */
+    color: #333; /* Warna teks */
+}
+
+.cartTab button:hover {
+    background-color: #000000; /* Warna lebih gelap saat hover */
+    color: #E8BC0E; /* Ubah warna teks saat hover */
+}
+
+.listCart .item img {
+    width: 100%;
+    border-radius: 10px; /* Sudut membulat untuk gambar */
+}
+
+.listCart .item {
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+    background-color: #009b74; /* Warna latar belakang item di keranjang */
+    border-radius: 10px; /* Sudut membulat untuk item di keranjang */
+    transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+.listCart .item:hover {
+    background-color: #e1e1e1; /* Ubah warna latar belakang saat hover */
+}
+
+.listCart .quantity span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #0deff7;
+    border-radius: 50%;
+    color: #555;
+    cursor: pointer;
+}
+
+.listCart .quantity span:nth-child(2) {
+    background-color: transparent;
+    color: #b12424; /* Ubah warna teks untuk angka */
+    cursor: auto;
+}
+
+.listCart .item:nth-child(even) {
+    background-color: #009696; /* Latar belakang lebih terang untuk item genap */
+}
+
+.listCart {
+    overflow: auto;
+}
+
+.listCart::-webkit-scrollbar {
+    width: 0; /* Sembunyikan scrollbar */
+}
+.back{
+    width: 4rem;
+    height: 4rem;
+position: fixed;
+top: 2rem;
+left: 2rem;
+bottom: 0;
+}
+@media only screen and (max-width: 992px) {
+    .listProduct {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+    .listProduct {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== BOXICONS ===============-->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+   
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="img/logo.png" type="image/png">
+
+    <title>XTERNAL STEP SURE</title>
+</head>
+
+<body>
+  
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img class="nav__logo-img" src="/img/logo.png" alt="">
+
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Beranda</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">Tentang Kami</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#services" class="nav__link">Layanan</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Hubungi Kami</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="pesanan.html" class="nav__link"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </li>
+
+                    <i class='bx bx-toggle-left change-theme' id="theme-button"></i>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-food-menu'></i>
+            </div>
+
+            <a href="pesanan.html" class="button button__header" data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom">Pesan Sekarang!</a>
+
+        </nav>
+    </header>
+
+    <main class="main">
+        <!--=============== HOME ===============-->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="wrapper">
+                    <svg>
+                        <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                            XTERNAL
+                        </text>
+                    </svg>
+                </div>
+                <div data-aos="fade-up"
+                data-aos-duration="3000"id="lightningContainer"></div> <!-- Tempat gambar petir akan muncul -->
+                <div class="conta">
+                    <img data-aos="fade-up"
+                    data-aos-anchor-placement="top-bottom" data-aos-duration="1500" src="img/s1.png" alt="" width="800" height="750"> <!-- Hindari ini -->
+                </div>
+                <div class="home__data">
+                    <h1  data-aos="fade-up"
+                    data-aos-duration="3000" class="home__title">
+                        Pesan Produk Lebih Cepat & Mudah
+                    </h1>
+                    <p  data-aos="fade-up"class="home__description">
+                        Pesan sepatu lokal Xternal berkualitas dengan berbagai pilihan dan kami akan mengantarkannya langsung ke depan pintu Anda
+                    </p>
+                    <a data-aos="fade-up"
+                    data-aos-anchor-placement="bottom-bottom" href="#" class="button">Mulai Sekarang</a>
+                </div>
+            </div>
+        </section>
+        
+
+        <!--=============== ABOUT ===============-->
+        <section data-aos="fade-up"
+        data-aos-duration="1500" class="about section container" id="about">
+            <div class="about__container grid">
+                <div class="about__data">
+                    <h2 class="section__title-center">Cari Tahu Lebih Banyak Tentang Kami</h2>
+                    <p class="about__description">
+                        Kami adalah perusahaan yang berkomitmen untuk menyediakan produk lokal Indonesia dengan kualitas terbaik melalui layanan pengiriman cepat.
+                    </p>
+                </div>
+
+                <img src="./img/about-ilustration.svg" class="about__img svg__img" alt="">
+            </div>
+        </section>
+
+        <!--=============== SECURITY ===============-->
+        <section data-aos="fade-up"
+        data-aos-duration="1500" class="about section container" class="security section container">
+            <div class="security__container grid">
+                <div class="security__data">
+                    <h2 class="section__title-center">Keamanan Anda <br> Prioritas Kami</h2>
+                    <p class="security__description">
+                        Kami mendukung pengiriman tanpa kontak sebagai tindakan untuk meningkatkan keamanan kesehatan. Tim kami bekerja dengan kode etik yang ketat untuk menjaga privasi Anda.
+                    </p>
+                </div>
+
+                <img src="./img/security-ilustration.svg" class="security__img svg__img" alt="">
+            </div>
+        </section>
+
+ <!--=============== PRODUCTS ===============-->
+ <section class="rege">
+    <div class="containerBx" >
+        <div class="card card1" data-aos="zoom-in">
+            <div class="imgBx">
+                <img src="img/s1.png" alt="XTERNAL">
+            </div>
+            <div class="contentBx">
+                <h2>Xternal Poke</h2>
+                <div class="size">
+                    <h3>Ukuran:</h3>
+                    <span>38</span>
+                    <span>39</span>
+                    <span>40</span>
+                    <span>41</span>
+                </div>
+                <div class="color">
+                    <h3>Warna:</h3>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a href="#">Beli Sekarang</a>
+            </div>
+        </div>
+        
+        <div class="card card2" data-aos="zoom-in">
+            <div class="imgBx">
+                <img src="img/s2.png" alt="XTERNAL">
+            </div>
+            <div class="contentBx">
+                <h2>Xternal Pro</h2>
+                <div class="size">
+                    <h3>Ukuran:</h3>
+                    <span>38</span>
+                    <span>39</span>
+                    <span>40</span>
+                    <span>41</span>
+                </div>
+                <div class="color">
+                    <h3>Warna:</h3>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a href="#">Beli Sekarang</a>
+            </div>
+        </div>
+        
+        <div class="card card3" data-aos="zoom-in">
+            <div class="imgBx">
+                <img src="img/s3.png" alt="XTERNAL">
+            </div>
+            <div class="contentBx">
+                <h2>Xternal Max</h2>
+                <div class="size">
+                    <h3>Ukuran:</h3>
+                    <span>38</span>
+                    <span>39</span>
+                    <span>40</span>
+                    <span>41</span>
+                </div>
+                <div class="color">
+                    <h3>Warna:</h3>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a href="#">Beli Sekarang</a>
+            </div>
+        </div>
+        
+        <div class="card card4" data-aos="zoom-in">
+            <div class="imgBx">
+                <img src="img/s4.png" alt="XTERNAL">
+            </div>
+            <div class="contentBx">
+                <h2>Xternal Bold</h2>
+                <div class="size">
+                    <h3>Ukuran:</h3>
+                    <span>38</span>
+                    <span>39</span>
+                    <span>40</span>
+                    <span>41</span>
+                </div>
+                <div class="color">
+                    <h3>Warna:</h3>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a href="#">Beli Sekarang</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!--=============== SERVICES ===============-->
+        <section class="services section container" id="services">
+            <h2 class="section__title">Layanan Kami</h2>
+
+            <div class="services__container grid">
+                <div data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                class="services__data"  data-aos-duration="2000">
+                    <h3 class="services__subtitle">Pembayaran Online</h3>
+
+                    <img src="./img/servis.png" class="services__img" alt="">
+
+                    <p class="services__description">Belanja tanpa ribet. Bayar dengan kartu kredit atau e-wallet.</p>
+
+                    <div>
+                        <a href="#" class="button button-link">Layanan Lainnya</a>
+                    </div>
+                </div>
+
+                <div class="services__data"  data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000">
+                    <h3 class="services__subtitle">Pengiriman Ekspres</h3>
+
+                    <img src="./img/servis2.png" class="services__img" alt="">
+
+                    <p class="services__description">Pengiriman cepat dengan jaminan tepat waktu.</p>
+
+                    <div>
+                        <a href="#" class="button button-link">Layanan Lainnya</a>
+                    </div>
+                </div>
+
+                <div class="services__data"  data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000">
+                    <h3 class="services__subtitle">Garansi Produk</h3>
+
+                    <img src="./img/servis3.jpg" class="services__img" alt="">
+
+                    <p class="services__description">Setiap produk dijamin keasliannya dan berkualitas tinggi.</p>
+
+                    <div>
+                        <a href="#" class="button button-link">Layanan Lainnya</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+             <!--=============== APLIKASI ===============-->
+             <section class="app section container">
+                <div class="app__container grid">
+                    <div class="app__data">
+                        <h2 class="section__title-center">Lacak Pengiriman Anda <br> Kapan Saja</h2>
+                        <p class="app__description">
+                            Kami menyediakan berbagai koleksi sepatu yang sesuai dengan gaya dan kebutuhan Anda. 
+                            Mulai dari sepatu kasual hingga formal, semua tersedia untuk Anda. 
+                            Dapatkan informasi terbaru tentang model-model sepatu terkini dan promo menarik 
+                            hanya di website kami. Temukan sepatu yang sempurna untuk setiap kesempatan dan 
+                            tingkatkan penampilan Anda. 
+                            Jangan lewatkan kesempatan untuk menjelajahi koleksi kami sekarang juga!
+    
+                        <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+                        class="app__buttons">
+                            <a href="#" class="button button--flex">
+                                <i 
+                                class='bx bxl-apple button__icon'></i> App Store
+                            </a>
+                            <a href="#" class="button button--flex">
+                                <i 
+                                class='bx bxl-play-store button__icon'></i> Play Store
+                            </a>
+                        </div>
+                        </p>
+                    </div>
+    
+                    <img src="./img/app__img.png" class="app__img svg__img" alt="">
+                </div>
+            </section>
+    
+            <!--=============== HUBUNGI KAMI ===============-->
+            <section class="contact section container" id="contact">
+                <div class="contact__container grid">
+                    <div class="contact__content">
+                        <h2 class="section__title-center">Hubungi Kami</h2>
+                        <p class="contact__description">
+                            Anda dapat menghubungi kami di sini jika Anda memiliki pertanyaan khusus dengan menghubungi kami atau 
+                            mengunjungi pusat layanan kami. Kami dengan senang hati akan membantu Anda.
+                        </p>
+                    </div>
+    
+                    <ul class="contact__content grid">
+                        <li class="contact__address"> Telepon: <span class="contact__information">+233 50 229 7337</span>
+                        </li>
+                        <li class="contact__address"> Email: <span class="contact__information">
+                                info@nutisdelivery.com</span> </li>
+                        <li class="contact__address"> Lokasi: <span class="contact__information">Dzorwulu, Accra</span>
+                        </li>
+                    </ul>
+    
+                    <div class="contact__content">
+                        <a href="#" data-aos="fade-up"
+                        data-aos-anchor-placement="bottom-bottom"class="button">Hubungi Kami</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    
+        <!--=============== FOOTER ===============-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">
+                        <h3 class="hfooter"><span style="color: red;">X</span>ternal</h3>
+                    </a>
+                    <p class="footer__description">
+                        Pesan Produk <br> Lebih Cepat & Mudah
+                    </p>
+                </div>
+    
+                <div class="footer__content">
+                    <h3 class="footer__title">Layanan Kami</h3>
+                    <ul class="footer__links">
+                        <li> <a href="#" class="footer__link">Harga</a> </li>
+                        <li> <a href="#" class="footer__link">Diskon</a> </li>
+                        <li> <a href="#" class="footer__link">Laporkan bug</a> </li>
+                        <li> <a href="#" class="footer__link">Syarat & Ketentuan</a> </li>
+                    </ul>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__title">Perusahaan Kami</h3>
+                    <ul class="footer__links">
+                        <li> <a href="#" class="footer__link">Blog</a> </li>
+                        <li> <a href="#" class="footer__link">Misi Kami</a> </li>
+                        <li> <a href="#" class="footer__link">Hubungi Kami</a> </li>
+                        <li> <a href="#" class="footer__link">Jadi Member</a> </li>
+                    </ul>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__title">Komunitas</h3>
+                    <ul class="footer__links">
+                        <li> <a href="#" class="footer__link">Dukungan</a> </li>
+                        <li> <a href="#" class="footer__link">Pertanyaan</a> </li>
+                        <li> <a href="#" class="footer__link">Pelanggan</a> </li>
+                    </ul>
+                </div>
+    
+                <div class="footer__social">
+                    <a href="https://facebook.com" target="_blank" class="footer__social-link"><i
+                            class='bx bxl-facebook-circle'></i></a>
+                    <a href="https://instagram.com" target="_blank" class="footer__social-link"><i
+                            class='bx bxl-instagram'></i></a>
+                    <a href="https://twitter.com" target="_blank" class="footer__social-link"><i
+                            class='bx bxl-twitter'></i></a>
+                </div>
+    
+            </div>
+            <p class="footer__copy">
+                &copy; Esta dan Sutrisna
+            </p>
+        </footer>
+    
+
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+    </a>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="js/app.js"></script>
+</body>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</html>
