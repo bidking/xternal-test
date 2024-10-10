@@ -26,8 +26,8 @@ const addDataToHTML = () => {
             newProduct.innerHTML = `
                 <img src="${product.image}" alt="">
                 <h2>${product.name}</h2>
-                <div class="price">${product.price}.000.00</div>
-                <button class="addCart">Add To Cart</button>`; // Menyusun elemen produk ke dalam HTML
+                <div class="price">Rp${product.price.toLocaleString('id-ID', {minimumFractionDigits: 0})}</div>
+                <button class="addCart">Add To Cart</button>`; // Format harga dalam Ribuan Rupiah
             listProductHTML.appendChild(newProduct); // Menambahkan produk ke dalam daftar produk
         });
     }
@@ -85,12 +85,12 @@ const addCartToHTML = () => {
                     <img src="${info.image}">
                 </div>
                 <div class="name">${info.name}</div>
-                <div class="totalPrice">${info.price * item.quantity}.000</div>
+                <div class="totalPrice">Rp${(info.price * item.quantity).toLocaleString('id-ID', {minimumFractionDigits: 0})}</div>
                 <div class="quantity">
                     <span class="minus"><</span>
                     <span>${item.quantity}</span>
                     <span class="plus">></span>
-                </div>`; // Susun informasi produk ke dalam HTML
+                </div>`; // Format subtotal dan harga dalam Ribuan Rupiah
             listCartHTML.appendChild(newItem); // Tambahkan item ke dalam daftar keranjang
         });
     }
@@ -136,11 +136,11 @@ const generateWhatsAppLink = () => {
         let productInfo = pesanan[positionProduct]; // Ambil informasi produk
         let subTotal = productInfo.price * item.quantity; // Hitung subtotal
 
-        message += `${productInfo.name} - Qty: ${item.quantity}, Subtotal: ${subTotal}.000\n`; // Tambahkan informasi produk ke pesan
+        message += `${productInfo.name} - Qty: ${item.quantity}, Subtotal: Rp${subTotal.toLocaleString('id-ID', {minimumFractionDigits: 0})}\n`; // Format subtotal dalam Ribuan Rupiah
         totalHarga += subTotal; // Tambahkan subtotal ke total harga
     });
 
-    message += `\nTotal Harga: ${totalHarga}.000`; // Tambahkan total harga ke pesan
+    message += `\nTotal Harga: Rp${totalHarga.toLocaleString('id-ID', {minimumFractionDigits: 0})}`; // Tambahkan total harga ke pesan
 
     // Encode pesan agar sesuai untuk URL WhatsApp
     let encodedMessage = encodeURIComponent(message);
@@ -172,4 +172,5 @@ const initApp = () => {
         }
     });
 };
+
 initApp(); // Jalankan fungsi inisialisasi aplikasi
