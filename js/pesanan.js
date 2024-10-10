@@ -136,7 +136,7 @@ const generateWhatsAppLink = () => {
         let productInfo = pesanan[positionProduct];
         let subTotal = productInfo.price * item.quantity;
 
-        message += `${productInfo.name} - Qty: ${item.quantity}, Subtotal: $${subTotal}\n`;
+        message += `${productInfo.name} - Qty: ${item.quantity}, Subtotal: ${subTotal}.000\n`;
         totalHarga += subTotal;
     });
 

@@ -12,7 +12,8 @@
 	--header-height: 3rem;
 
 	/*========== Colors ==========*/
-	--hue: 197; /* Warna biru langit */
+	--hue: 197;
+	--hee:0; /* Warna biru langit */
 --sat: 70%; /* Saturasi biru langit */
 --first-color: hsl(197, 70%, 60%); /* Biru langit utama */
 --first-color-light: hsl(197, 70%, 75%); /* Biru langit lebih terang */
@@ -25,7 +26,7 @@
 	--container-color: #fff;
 	--scroll-bar-color: hsl(var(--hue), 4%, 85%);
 	--scroll-thumb-color: hsl(var(--hue), 4%, 70%);
-
+	--step: hsl(var(--hee), 50%, 100%);
 	
 
 	/*========== Font weight ==========*/
@@ -519,6 +520,79 @@ svg text {
 .fa-solid{
 	font-size: 1.5rem;
 	color: #0084ff;
+}
+.design-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:var(--body-color);
+  min-height: 100vh;
+  padding: 100px 0;
+  font-family: var(--body-font);
+}
+
+.design {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline {
+  width: 80%;
+  height: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-content {
+  padding: 20px;
+  background:var(--first-color-alt);
+  box-shadow: 0px 1px 2px rgba(0,255,255,0.5), 
+  0px 2px 4px rgba(0,255,255,0.5), 
+  0px 4px 8px rgba(0,255,255,0.5), 
+  0px 8px 16px rgba(0,255,255,0.5);
+  border-radius: 5px;
+  color: white;
+  padding: 1.75rem;
+  transition: 0.4s ease;
+  overflow-wrap: break-word !important;
+  margin: 1rem;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.timeline-component {
+  margin: 0px 20px 20px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 3px 1fr;
+  }
+  .timeline-middle {
+    position: relative;
+    background-image: linear-gradient(45deg, #F27121, #E94057, #8A2387);
+    width: 3px;
+    height: 100%;
+  }
+  .main-middle {
+    opacity: 0;
+  }
+  .timeline-circle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-image: linear-gradient(45deg, #F27121, #E94057, #8A2387);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
 }
 @media screen and (max-width: 767px) {
 	.nav__menu {
