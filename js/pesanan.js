@@ -1,85 +1,85 @@
-let listProductHTML = document.querySelector('.listProduct');
-let listCartHTML = document.querySelector('.listCart');
-let iconCart = document.querySelector('.icon-cart');
-let iconCartSpan = document.querySelector('.icon-cart span');
-let body = document.querySelector('body');
-let closeCart = document.querySelector('.close');
-let pesanan = [];
-let cart = [];
+let listProductHTML = document.querySelector('.listProduct'); // Ambil elemen daftar produk
+let listCartHTML = document.querySelector('.listCart'); // Ambil elemen daftar keranjang
+let iconCart = document.querySelector('.icon-cart'); // Ambil elemen ikon keranjang
+let iconCartSpan = document.querySelector('.icon-cart span'); // Ambil elemen span di dalam ikon keranjang
+let body = document.querySelector('body'); // Ambil elemen body
+let closeCart = document.querySelector('.close'); // Ambil elemen tombol close
+let pesanan = []; // Variabel untuk menyimpan data produk
+let cart = []; // Variabel untuk menyimpan data keranjang
 
-// Toggle cart visibility
+// Mengatur visibilitas keranjang saat ikon diklik
 iconCart.addEventListener('click', () => {
-    body.classList.toggle('showCart');
+    body.classList.toggle('showCart'); // Menambahkan atau menghapus kelas showCart pada body
 });
 closeCart.addEventListener('click', () => {
-    body.classList.toggle('showCart');
+    body.classList.toggle('showCart'); // Menambahkan atau menghapus kelas showCart pada body
 });
 
-// Display products in the product list
+// Menampilkan produk pada daftar produk
 const addDataToHTML = () => {
-    // Add new products
+    // Tambahkan produk baru
     if (pesanan.length > 0) {
         pesanan.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.dataset.id = product.id;
-            newProduct.classList.add('item');
+            let newProduct = document.createElement('div'); // Membuat elemen div baru untuk produk
+            newProduct.dataset.id = product.id; // Menambahkan id produk ke dataset elemen
+            newProduct.classList.add('item'); // Menambahkan kelas item pada elemen
             newProduct.innerHTML = `
                 <img src="${product.image}" alt="">
                 <h2>${product.name}</h2>
                 <div class="price">${product.price}.000.00</div>
-                <button class="addCart">Add To Cart</button>`;
-            listProductHTML.appendChild(newProduct);
+                <button class="addCart">Add To Cart</button>`; // Menyusun elemen produk ke dalam HTML
+            listProductHTML.appendChild(newProduct); // Menambahkan produk ke dalam daftar produk
         });
     }
 };
 
-// Add product to cart when clicked
+// Menambahkan produk ke keranjang saat tombol Add To Cart diklik
 listProductHTML.addEventListener('click', (event) => {
-    let positionClick = event.target;
+    let positionClick = event.target; // Mendapatkan elemen yang diklik
     if (positionClick.classList.contains('addCart')) {
-        let id_product = positionClick.parentElement.dataset.id;
-        addToCart(id_product);
+        let id_product = positionClick.parentElement.dataset.id; // Mengambil id produk
+        addToCart(id_product); // Memanggil fungsi untuk menambahkan produk ke keranjang
     }
 });
 
-// Add to cart logic
+// Logika untuk menambahkan produk ke keranjang
 const addToCart = (product_id) => {
-    let positionThisProductInCart = cart.findIndex(value => value.product_id == product_id);
+    let positionThisProductInCart = cart.findIndex(value => value.product_id == product_id); // Cek apakah produk sudah ada di keranjang
     if (cart.length <= 0) {
         cart = [{
             product_id: product_id,
             quantity: 1
-        }];
+        }]; // Jika keranjang kosong, tambahkan produk dengan kuantitas 1
     } else if (positionThisProductInCart < 0) {
         cart.push({
             product_id: product_id,
             quantity: 1
-        });
+        }); // Jika produk belum ada di keranjang, tambahkan produk baru
     } else {
-        cart[positionThisProductInCart].quantity += 1;
+        cart[positionThisProductInCart].quantity += 1; // Jika produk sudah ada, tambahkan kuantitasnya
     }
-    addCartToHTML();
-    addCartToMemory();
+    addCartToHTML(); // Update tampilan keranjang
+    addCartToMemory(); // Simpan keranjang ke localStorage
 };
 
-// Save cart to localStorage
+// Menyimpan keranjang ke localStorage
 const addCartToMemory = () => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart)); // Simpan keranjang dalam format JSON ke localStorage
 };
 
-// Display cart items
+// Menampilkan item keranjang ke dalam HTML
 const addCartToHTML = () => {
-    listCartHTML.innerHTML = '';
-    let totalQuantity = 0;
+    listCartHTML.innerHTML = ''; // Kosongkan daftar keranjang sebelum diisi
+    let totalQuantity = 0; // Variabel untuk menyimpan total kuantitas
     if (cart.length > 0) {
         cart.forEach(item => {
-            totalQuantity += item.quantity;
-            let newItem = document.createElement('div');
-            newItem.classList.add('item');
-            newItem.dataset.id = item.product_id;
+            totalQuantity += item.quantity; // Tambahkan kuantitas produk ke total
+            let newItem = document.createElement('div'); // Buat elemen baru untuk item keranjang
+            newItem.classList.add('item'); // Tambahkan kelas item ke elemen
+            newItem.dataset.id = item.product_id; // Simpan id produk di dataset elemen
 
-            let positionProduct = pesanan.findIndex(value => value.id == item.product_id);
-            let info = pesanan[positionProduct];
+            let positionProduct = pesanan.findIndex(value => value.id == item.product_id); // Cari posisi produk di array pesanan
+            let info = pesanan[positionProduct]; // Ambil informasi produk dari pesanan
             newItem.innerHTML = `
                 <div class="image">
                     <img src="${info.image}">
@@ -90,86 +90,86 @@ const addCartToHTML = () => {
                     <span class="minus"><</span>
                     <span>${item.quantity}</span>
                     <span class="plus">></span>
-                </div>`;
-            listCartHTML.appendChild(newItem);
+                </div>`; // Susun informasi produk ke dalam HTML
+            listCartHTML.appendChild(newItem); // Tambahkan item ke dalam daftar keranjang
         });
     }
-    iconCartSpan.innerText = totalQuantity;
+    iconCartSpan.innerText = totalQuantity; // Tampilkan total kuantitas di ikon keranjang
 };
 
-// Change quantity in cart
+// Mengubah kuantitas di keranjang
 listCartHTML.addEventListener('click', (event) => {
-    let positionClick = event.target;
+    let positionClick = event.target; // Mendapatkan elemen yang diklik
     if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
-        let product_id = positionClick.parentElement.parentElement.dataset.id;
-        let type = positionClick.classList.contains('plus') ? 'plus' : 'minus';
-        changeQuantityCart(product_id, type);
+        let product_id = positionClick.parentElement.parentElement.dataset.id; // Ambil id produk
+        let type = positionClick.classList.contains('plus') ? 'plus' : 'minus'; // Tentukan apakah itu plus atau minus
+        changeQuantityCart(product_id, type); // Panggil fungsi untuk mengubah kuantitas
     }
 });
 
 const changeQuantityCart = (product_id, type) => {
-    let positionItemInCart = cart.findIndex(value => value.product_id == product_id);
+    let positionItemInCart = cart.findIndex(value => value.product_id == product_id); // Cari posisi item di keranjang
     if (positionItemInCart >= 0) {
         switch (type) {
             case 'plus':
-                cart[positionItemInCart].quantity += 1;
+                cart[positionItemInCart].quantity += 1; // Tambah kuantitas jika plus
                 break;
             case 'minus':
-                cart[positionItemInCart].quantity -= 1;
+                cart[positionItemInCart].quantity -= 1; // Kurangi kuantitas jika minus
                 if (cart[positionItemInCart].quantity <= 0) {
-                    cart.splice(positionItemInCart, 1);
+                    cart.splice(positionItemInCart, 1); // Hapus item jika kuantitas 0
                 }
                 break;
         }
     }
-    addCartToHTML();
-    addCartToMemory();
+    addCartToHTML(); // Update tampilan keranjang
+    addCartToMemory(); // Simpan perubahan ke localStorage
 };
 
-// Generate WhatsApp link with cart details
+// Menghasilkan link WhatsApp dengan detail keranjang
 const generateWhatsAppLink = () => {
-    let message = 'Pesanan Saya:\n';
-    let totalHarga = 0;
+    let message = 'Pesanan Saya:\n'; // Pesan awal untuk WhatsApp
+    let totalHarga = 0; // Variabel untuk menyimpan total harga
 
     cart.forEach(item => {
-        let positionProduct = pesanan.findIndex(value => value.id == item.product_id);
-        let productInfo = pesanan[positionProduct];
-        let subTotal = productInfo.price * item.quantity;
+        let positionProduct = pesanan.findIndex(value => value.id == item.product_id); // Cari posisi produk di pesanan
+        let productInfo = pesanan[positionProduct]; // Ambil informasi produk
+        let subTotal = productInfo.price * item.quantity; // Hitung subtotal
 
-        message += `${productInfo.name} - Qty: ${item.quantity}, Subtotal: ${subTotal}.000\n`;
-        totalHarga += subTotal;
+        message += `${productInfo.name} - Qty: ${item.quantity}, Subtotal: ${subTotal}.000\n`; // Tambahkan informasi produk ke pesan
+        totalHarga += subTotal; // Tambahkan subtotal ke total harga
     });
 
-    message += `\nTotal Harga: ${totalHarga}.000`;
+    message += `\nTotal Harga: ${totalHarga}.000`; // Tambahkan total harga ke pesan
 
-    // Encode the message to be used in a WhatsApp URL
+    // Encode pesan agar sesuai untuk URL WhatsApp
     let encodedMessage = encodeURIComponent(message);
-    let whatsappUrl = `https://wa.me/6288294606640?text=${encodedMessage}`;
+    let whatsappUrl = `https://wa.me/6288294606640?text=${encodedMessage}`; // Buat URL WhatsApp
     
-    return whatsappUrl;
+    return whatsappUrl; // Kembalikan URL WhatsApp
 };
 
-// Add event listener to the checkout button
-const checkoutBtn = document.getElementById('checkoutBtn');
+// Tambahkan event listener ke tombol checkout
+const checkoutBtn = document.getElementById('checkoutBtn'); // Ambil elemen tombol checkout
 checkoutBtn.addEventListener('click', () => {
-    let whatsappLink = generateWhatsAppLink();
-    window.open(whatsappLink, '_blank');
+    let whatsappLink = generateWhatsAppLink(); // Buat link WhatsApp
+    window.open(whatsappLink, '_blank'); // Buka link di tab baru
 });
 
-// Initialize app
+// Inisialisasi aplikasi
 const initApp = () => {
-    // Fetch products from pesanan.json
+    // Ambil data produk dari pesanan.json
     fetch('pesanan.json')
     .then(response => response.json())
     .then(data => {
-        pesanan = data;
-        addDataToHTML();
+        pesanan = data; // Simpan data produk ke variabel pesanan
+        addDataToHTML(); // Tampilkan produk di HTML
 
-        // Load cart from localStorage if available
+        // Muat data keranjang dari localStorage jika ada
         if (localStorage.getItem('cart')) {
-            cart = JSON.parse(localStorage.getItem('cart'));
-            addCartToHTML();
+            cart = JSON.parse(localStorage.getItem('cart')); // Ambil data keranjang dari localStorage
+            addCartToHTML(); // Tampilkan keranjang di HTML
         }
     });
 };
-initApp();
+initApp(); // Jalankan fungsi inisialisasi aplikasi
