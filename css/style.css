@@ -567,6 +567,11 @@ svg text {
 .timeline-component {
   margin: 0px 20px 20px 20px;
 }
+.img-data{
+	border-radius: 0px 62px 0px 62px;
+	-webkit-border-radius: 0px 62px 0px 62px;
+	-moz-border-radius: 0px 62px 0px 62px;
+}
 
 @media screen and (min-width: 768px) {
   .timeline {
@@ -721,7 +726,9 @@ svg text {
 .home__title {
 	font-size: var(--biggest-font-size);
 	font-weight: var(--font-bold);
-	margin-bottom: var(--mb-0-75);
+	/* margin-bottom: var(--mb-0-75); */
+	margin-top: -3rem;
+	
 }
 
 .home__description {
@@ -922,6 +929,10 @@ svg text {
 
 .footer__link {
 	color: var(--title-color);
+}
+.footer__link>img {
+width: 5rem;
+height: 1.5rem;
 }
 
 .footer__social {
